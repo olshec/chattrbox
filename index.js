@@ -1,6 +1,7 @@
 let http = require("http");
 let fs = require('fs');
 let extract = require('./extract');
+let wss = require('./websockets-server');
 
 let handlerError = function(err, res) {
     res.writeHead(404);
@@ -21,3 +22,5 @@ let server = http.createServer(function(req, res){
     });
 });
 server.listen(3000);
+
+
