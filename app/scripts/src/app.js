@@ -1,6 +1,9 @@
+let socket = require('./ws-client');
+
 class ChatApp {
     constructor() {
-        console.log('Hello ES6!');
+        //console.log('Hello ES6!');
+        socket('ws://localhost:3001');
     }
 }
 
