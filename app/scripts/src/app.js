@@ -3,7 +3,16 @@ let socket = require('./ws-client');
 class ChatApp {
     constructor() {
         //console.log('Hello ES6!');
-        socket('ws://localhost:3001');
+        socket.init('ws://localhost:3001');
+        
+        socket.registerOpenHandler(() => {
+            let message = new ChatMessage({message: 'pow!'});
+            socket.sendMessage(message.serialize());
+        });
+        
+        socket.registerMessageHandler((data) => {
+            console.log(data);
+        });
     }
 }
 
